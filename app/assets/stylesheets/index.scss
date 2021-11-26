@@ -1,0 +1,30 @@
+.posts-container {
+  width: 50%;
+  margin: 10px auto;
+}
+h3 {
+  margin: 30px auto;
+  text-align: center;
+}
+.post {
+  border-top: solid #00acee;
+  margin-top: 10px;
+  padding-top: 20px;
+}
+.main-box {
+  margin: 5px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card {
+  margin-bottom: 16px;
+  background-color: #101010;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.time {
+  display: flex;
+  justify-content: flex-end;
+}

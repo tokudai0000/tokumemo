@@ -1,0 +1,43 @@
+<%= stylesheet_link_tag 'index', :media => "all" %>
+
+<div class="posts-container">
+  <% if user_signed_in? %>
+    <%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
+    <%= button_to 'ユーザー一覧', users_path, method: :get %>
+  <% end %>
+<h3>投稿一覧</h3>
+  <% @posts.each do |t| %>
+    <div class="card" style="width: 18rem;">
+      <%= image_tag t.image_url, class: "card-img-top" if t.image? %>
+      <div class ="card-body">
+        <%= t.user.email %>
+        <div class="left-container">
+          <%= t.body %>
+        </div>
+        <div class="right-container">
+          <% if user_signed_in? %>
+            <% if current_user.already_liked?(t) %>
+              <%= link_to post_like_path(id: t.id, post_id: t.id), method: :delete do %>
+                  <p>いいねを取り消す</p><%= t.likes.count %>
+              <% end %>
+            <% else %>
+              <%= link_to post_likes_path(id: t.id, post_id: t.id), method: :post do %>
+                  <p>いいね</p><%= t.likes.count %>
+              <% end %>
+            <% end %>
+        <% else %>
+            <p>いいねの数 = </p><%= t.likes.count %>
+        <% end %>
+          <div class="btn-group" role="group" aria-label="Basic example">
+            <%= link_to "詳細", post_path(t.id), class: "btn btn-secondary" %>
+            <% if user_signed_in? && current_user.id == t.user_id %>
+              <%= link_to "編集", edit_post_path(t.id), class: "btn btn-secondary" %>
+              <%= link_to "削除", post_path(t.id), method: :delete, class: "btn btn-secondary" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <p class="time"><%= t.created_at %></p>
+    </div>
+  <% end %>
+</div>

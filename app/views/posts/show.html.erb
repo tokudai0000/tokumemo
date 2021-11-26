@@ -1,0 +1,52 @@
+<h2>投稿詳細</h2>
+
+<div class="post">
+  <p><%= @post.user.email %></p>
+  <%= image_tag @post.image_url, size: "250x200" if @post.image? %>
+  <h3><%= @post.body %></h3>
+  <p><%= @post.created_at %></p>
+  
+  <% if user_signed_in? %>
+      <% if current_user.already_liked?(@post) %>
+          <%= link_to post_like_path(@post), method: :delete do %>
+             <p>いいねを取り消す</p><%= @post.likes.count %>
+          <% end %>
+      <% else %>
+          <%= link_to post_likes_path(@post), method: :post do %>
+             <p>いいね</p><%= @post.likes.count %>
+          <% end %>
+      <% end %>
+  <% else %>
+      <p>いいねの数 = </p><%= @post.likes.count %>
+  <% end %>
+
+</div>
+
+<h2>いいねしたユーザー</h2>
+<% @post.liked_users.each do |user| %>
+  <li><%= user.email %></li>
+<% end %>
+
+<div class="comment-wrapper">
+  <p>コメント一覧</p>
+  <% @comments.each do |c| %>
+    <div>
+      <%= c.user.email unless c.user.blank? %>
+      <br>
+      <%= c.content %>
+    </div>
+      <br>
+  <% end %>
+
+  <% if user_signed_in? %>
+    <%= form_with(model: [@post, @comment], local: true) do |f| %>
+      <%= f.text_area :content %>
+      <%= button_tag type: "submit" do %>
+        <i class="far fa-comments"></i> コメントする
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+
+<%= link_to "編集する", edit_post_path(@post.id) %>
+<%= link_to "投稿一覧に戻る", posts_path %>

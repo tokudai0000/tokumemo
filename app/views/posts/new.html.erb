@@ -1,0 +1,22 @@
+<%= stylesheet_link_tag 'new', :media => "all" %>
+
+<div class="post-container">
+<h3>新規投稿</h3>
+  <%= form_for @post do |f| %>
+  <div class="field">
+    <%= f.label :テキスト %>
+    <br>
+    <%= f.text_field :body, :size => 30 %>
+    <br>
+    <div class="field">
+      <%= f.label :写真 %>
+      <%= f.file_field :image %>
+    </div>
+    <%= f.submit "投稿する" %>
+    <br>
+
+ 
+  <% end %>
+</div>
+
+<%= link_to "一覧に戻る", posts_path %>
