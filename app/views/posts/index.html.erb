@@ -4,10 +4,20 @@
   <% if user_signed_in? %>
     <%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
     <%= button_to 'ユーザー一覧', users_path, method: :get %>
+  <% else %>
+    <%= link_to "ログイン", new_user_session_path %>
+    <%= link_to "新規登録", new_user_registration_path %>
   <% end %>
+  
+  <h6>メアドか投稿テキストで検索(部分検索可)</h4>
+  <%= form_tag({controller:"posts",action:"index"}, method: :get) do %>
+     <%= text_field_tag :search %>
+     <%= submit_tag '検索する'  %>
+  <% end %>
+  
 <h3>投稿一覧</h3>
   <% @posts.each do |t| %>
-    <div class="card" style="width: 18rem;">
+    <div class="card">
       <%= image_tag t.image_url, class: "card-img-top" if t.image? %>
       <div class ="card-body">
         <%= t.user.email %>

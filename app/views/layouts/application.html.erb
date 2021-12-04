@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   </head>
 
   <body>
@@ -15,7 +16,7 @@
       <h1>GeekInstagram</h1>
       <div class="header-list">
       <ul>
-        <li><%= link_to "ホーム", posts_path %></li>
+        <li><%= link_to "ホーム", root_path %></li>
         <li><%= link_to "新規投稿",new_post_path %></li>
         <% if user_signed_in? %>
         <li><%= link_to "マイページへ", user_path(current_user.id) %></li>

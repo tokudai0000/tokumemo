@@ -1,5 +1,6 @@
 <%= stylesheet_link_tag 'user_show', :media => "all" %>
-
+<div class="user_show">
+  
 <h1><%= @user.name %>のページ</h1>
 <%= image_tag @user.image_url, size: "250x200" if @user.image? %>
 <p>名前 : <%= @user.name %></p>
@@ -42,3 +43,4 @@
 <% end %>
 
 <%= link_to "投稿一覧に戻る", posts_path, class: "btn btn-primary" %>
+</div>

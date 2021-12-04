@@ -1,6 +1,7 @@
 .posts-container {
   width: 50%;
   margin: 10px auto;
+  margin-top: 0;
 }
 h3 {
   margin: 30px auto;
@@ -27,4 +28,19 @@ h3 {
 .time {
   display: flex;
   justify-content: flex-end;
+}
+
+@media screen and (max-width:640px) {/* 600px以下*/
+  .posts-container {
+    width: 100%;
+    margin: 10px auto;
+    margin-top: 0;
+  }
+  .card {
+    width: 100%;
+    margin-bottom: 16px;
+    background-color: #101010;
+    margin-right: auto;
+    margin-left: auto;
+  }
 }

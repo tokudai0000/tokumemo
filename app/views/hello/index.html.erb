@@ -4,6 +4,11 @@
   <p class="lead">めちゃくちゃ急いで作りました…。よろしくお願いします。。</p>
   <hr class="my-4">
   <p>どうぞこちらからお入りください。いってらっしゃい！</p>
-  <%= link_to "ログイン", posts_path, class: "btn btn-primary btn-lg" %>
-  <%= link_to "新規登録", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+  <% if user_signed_in? %>
+    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn btn-primary btn-lg" %>
+    <%= link_to '投稿一覧', posts_path, method: :get, class: "btn btn-primary btn-lg" %>
+  <% else %>
+    <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary btn-lg" %>
+    <%= link_to "新規登録", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+  <% end %>
 </div>
