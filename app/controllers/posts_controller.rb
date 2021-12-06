@@ -10,7 +10,20 @@ class PostsController < ApplicationController
       else
         @posts = Post.all
     end
-  end 
+  end
+  
+  def rank
+    if params[:search] != nil && params[:search] != ''
+        #部分検索かつ複数検索
+        search = params[:search]
+        @posts = Post.joins(:user).where("body LIKE ? OR email LIKE ?", "%#{search}%", "%#{search}%")
+      else
+        @posts = Post.all
+    end
+    
+    @rank_posts = Post.all.sort {|a,b| b.liked_users.count <=> a.liked_users.count}
+    
+  end
 
   def new
     @post = Post.new

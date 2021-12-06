@@ -25,6 +25,11 @@ h3 {
   margin-left: auto;
 }
 
+img {
+  height: 250px;
+  object-fit: cover;
+}
+
 .time {
   display: flex;
   justify-content: flex-end;

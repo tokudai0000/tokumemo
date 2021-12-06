@@ -16,8 +16,9 @@
   <% end %>
   
 <h3>投稿一覧</h3>
-  <%= button_to "いいねランキングで表示する", rank_posts_path, method: :get, class: "btn btn-primary" %>
-  <% @posts.each do |t| %>
+  <%= button_to "投稿順に表示する", posts_path, method: :get, class: "btn btn-primary" %>
+  <!--いいねランキング-->
+  <% @rank_posts.each do |t| %>
     <div class="card">
       <%= image_tag t.image_url, class: "card-img-top" if t.image? %>
       <div class ="card-body">
