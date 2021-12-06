@@ -1,11 +1,15 @@
 .login-container {
   color: #101010;
   margin: 50px auto;
-  width: 50%;
+  margin-top: 150px;
+  width: 70%;
   border: solid #d3def1;
   border-radius: 10px;
   text-align: center;
   background-color: #d3def1;
+}
+h4 {
+  margin: 16px;
 }
 .title {
   font-size: 32px;
@@ -13,12 +17,19 @@
   margin-bottom: 50px;
 }
 input[type="email"] {
-  width: 95%;
+  width: 90%;
   height: 40px;
+  margin: auto;
+}
+input[type="password"] {
+  width: 90%;
+  height: 40px;
+  margin: auto;
 }
 input[type="submit"] {
-  width: 200px;
+  width: 70%;
   font-size: 20px;
-  margin-top: 50px;
+  margin-top: 20px;
   margin-bottom: 30px;
+  border-radius: 22px;
 }
