@@ -1,29 +1,26 @@
-<%= stylesheet_link_tag 'user_login', :media => "all" %>
+<h2>ログイン</h2>
 
-<div class="login-container">
-  <h4>GeekInstagramにログイン</h4>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-group">
-    <label for="exampleInputEmail1">メールアドレス</label>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"%>
+  <div class="field">
+    <%= f.label :メールアドレス %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-  <div class="form-group">
-    <label for="exampleInputPassword1">パスワード</label>
-    <%= f.password_field :password, autocomplete: "off" , class: "form-control"%>
+  <div class="field">
+    <%= f.label :パスワード %><br />
+    <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
 
-  <% if devise_mapping.rememberable? -%>
+  <% if devise_mapping.rememberable? %>
     <div class="field">
       <%= f.check_box :remember_me %>
-      <label class="form-check-label" for="exampleCheck1">私を覚える</label>
+      <%= f.label :remember_me %>
     </div>
-  <% end -%>
+  <% end %>
 
   <div class="actions">
-    <%= f.submit "ログイン", class: "btn btn-primary" %>
+    <%= f.submit "ログイン" %>
   </div>
 <% end %>
 
-</div>
 <%= render "users/shared/links" %>

@@ -11,15 +11,14 @@
   
   <!--検索フォーム-->
   <h6>メアドか投稿テキストで検索(部分検索可)</h4>
-  <%= form_tag({controller:"posts",action:"rank"}, method: :get) do %>
+  <%= form_tag({controller:"posts",action:"undergraduate"}, method: :get) do %>
      <%= text_field_tag :search %>
      <%= submit_tag '検索する'  %>
   <% end %>
   
-<h3>いいね順 投稿一覧</h3>
-  <%= button_to "投稿順に表示する", posts_path, method: :get, class: "btn btn-primary" %>
-  <!--いいねランキング-->
-  <% @rank_posts.each do |t| %>
+<h3>学科・コース投稿一覧</h3>
+  <%= button_to "全ての投稿を見る", posts_path, method: :get, class: "btn btn-primary" %>
+  <% @posts.each do |t| %>
     <div class="card">
       <%= image_tag t.image_url, class: "card-img-top" if t.image? %>
       <div class ="card-body">

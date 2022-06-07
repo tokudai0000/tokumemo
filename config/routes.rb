@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
     collection do
       get 'rank'
+      get 'undergraduate'
+      get 'course'
     end
   end
   

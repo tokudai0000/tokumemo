@@ -9,6 +9,7 @@
     <%= link_to "新規登録", new_user_registration_path %>
   <% end %>
   
+  <!--検索フォーム-->
   <h6>メアドか投稿テキストで検索(部分検索可)</h4>
   <%= form_tag({controller:"posts",action:"index"}, method: :get) do %>
      <%= text_field_tag :search %>
@@ -17,6 +18,8 @@
   
 <h3>投稿一覧</h3>
   <%= button_to "いいねランキングで表示する", rank_posts_path, method: :get, class: "btn btn-primary" %>
+  <%= button_to "学部の投稿を見る", undergraduate_posts_path, method: :get, class: "btn btn-primary" %>
+  <%= button_to "学科（コース）の投稿を見る", course_posts_path, method: :get, class: "btn btn-primary" %>
   <% @posts.each do |t| %>
     <div class="card">
       <%= image_tag t.image_url, class: "card-img-top" if t.image? %>

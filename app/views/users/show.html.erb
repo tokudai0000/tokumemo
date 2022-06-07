@@ -5,6 +5,8 @@
 <%= image_tag @user.image_url, size: "250x200" if @user.image? %>
 <p>名前 : <%= @user.name %></p>
 <p>メールアドレス : <%= @user.email %></p>
+<p>学部 : <%= @user.undergraduate %></p>
+<p>学科またはコース : <%= @user.course %></p>
 <p>プロフィール : <%= @user.profile %></p>
 
 <% if current_user.id == @user.id %>

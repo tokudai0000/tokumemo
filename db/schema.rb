@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_26_120840) do
+ActiveRecord::Schema.define(version: 2022_06_05_112830) do
 
   create_table "comments", force: :cascade do |t|
     t.string "content"
@@ -56,6 +56,9 @@ ActiveRecord::Schema.define(version: 2021_11_26_120840) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
     t.string "image"
+    t.integer "private", default: 0, null: false
+    t.string "undergraduate"
+    t.string "course"
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -75,6 +78,9 @@ ActiveRecord::Schema.define(version: 2021_11_26_120840) do
     t.string "name"
     t.text "profile"
     t.string "image"
+    t.string "undergraduate"
+    t.string "department"
+    t.string "course"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

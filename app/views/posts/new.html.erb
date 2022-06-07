@@ -12,6 +12,18 @@
       <%= f.label :写真 %>
       <%= f.file_field :image %>
     </div>
+    
+    <div class="field">
+      <%= f.label :プライベート投稿設定 %>
+      <%= f.radio_button :private, 0, checked: true %>全員に共有
+      <%= f.radio_button :private, 1 %>学部のみで共有
+      <%= f.radio_button :private, 2 %>学科（コース）のみで共有
+    </div>
+    
+    <!--投稿者の学部と学科をhiddenで設定-->
+    <%= f.hidden_field :undergraduate, :value => current_user.undergraduate %>
+    <%= f.hidden_field :course, :value => current_user.course %>
+  
     <%= f.submit "投稿する" %>
     <br>
 

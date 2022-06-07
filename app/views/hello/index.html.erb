@@ -1,9 +1,9 @@
 <%= stylesheet_link_tag 'hello', :media => "all" %>
 <div class="jumbotron">
-  <h1 class="display-4">GeekInstagram</h1>
-  <p class="lead">遅くなっていてすみません…。よろしくお願いします。。</p>
+  <h1 class="display-4">ようこそトクメモポストへ！</h1>
+  <p class="lead">徳島大学生のためのSNS</p>
   <hr class="my-4">
-  <p>どうぞこちらからお入りください!</p>
+  <p>こちらからお入りください!</p>
   <% if user_signed_in? %>
     <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn btn-primary btn-lg" %>
     <%= link_to '投稿一覧', posts_path, method: :get, class: "btn btn-primary btn-lg" %>
