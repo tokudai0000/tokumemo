@@ -24,7 +24,10 @@
     <div class="card">
       <%= image_tag t.image_url, class: "card-img-top" if t.image? %>
       <div class ="card-body">
-        <%= t.user.email %>
+        <div class = "card-name">
+          <%= image_tag t.user.image_url if t.user.image? %>
+          <%= link_to t.user.name, user_path(t.user.id) %>
+        </div>
         <div class="left-container">
           <%= t.body %>
         </div>

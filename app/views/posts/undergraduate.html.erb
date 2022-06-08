@@ -16,13 +16,16 @@
      <%= submit_tag '検索する'  %>
   <% end %>
   
-<h3>学科・コース投稿一覧</h3>
+<h3>学部投稿一覧</h3>
   <%= button_to "全ての投稿を見る", posts_path, method: :get, class: "btn btn-primary" %>
   <% @posts.each do |t| %>
     <div class="card">
       <%= image_tag t.image_url, class: "card-img-top" if t.image? %>
       <div class ="card-body">
-        <%= t.user.email %>
+        <div class = "card-name">
+          <%= image_tag t.user.image_url if t.user.image? %>
+          <%= link_to t.user.name, user_path(t.user.id) %>
+        </div>
         <div class="left-container">
           <%= t.body %>
         </div>
