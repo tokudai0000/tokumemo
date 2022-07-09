@@ -10,11 +10,15 @@
   <% end %>
   
   <!--検索フォーム-->
-  <h6>メアドか投稿テキストで検索(部分検索可)</h4>
-  <%= form_tag({controller:"posts",action:"undergraduate"}, method: :get) do %>
-     <%= text_field_tag :search %>
-     <%= submit_tag '検索する'  %>
-  <% end %>
+  <div class="search">
+    <h6>メアドか投稿テキストで検索(部分検索可)</h4>
+    <%= form_tag({controller:"posts",action:"undergraduate"}, method: :get) do %>
+      <%= text_field_tag :search %>
+      <button type="submit">
+        <i class="bi bi-search"></i>
+      </button>
+    <% end %>
+  </div>
   
 <h3>学部投稿一覧</h3>
   <%= button_to "全ての投稿を見る", posts_path, method: :get, class: "btn btn-primary" %>
@@ -33,11 +37,11 @@
           <% if user_signed_in? %>
             <% if current_user.already_liked?(t) %>
               <%= link_to post_like_path(id: t.id, post_id: t.id), method: :delete do %>
-                  <p>いいねを取り消す</p><%= t.likes.count %>
+                <i class="bi bi-heart-fill"></i><%= t.likes.count %>
               <% end %>
             <% else %>
               <%= link_to post_likes_path(id: t.id, post_id: t.id), method: :post do %>
-                  <p>いいね</p><%= t.likes.count %>
+                <i class="bi bi-heart"></i><%= t.likes.count %>
               <% end %>
             <% end %>
         <% else %>
